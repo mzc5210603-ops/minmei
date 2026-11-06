@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>时间小屋 · 手作时间仪器</title>
+  <meta name="description" content="黄铜与皮革打造的时间仪器：番茄钟、倒计时、纪念日、作息表。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══ 铜牌门头 ═══ -->
+  <header class="brass-plate">
+    <h1>时 间 小 屋</h1>
+    <p>—— 黄铜与皮革的手作时间仪器 ——</p>
+  </header>
+
+  <!-- ═══ 仪器台 ═══ -->
+  <main class="bench">
+
+    <!-- 仪器 1：挂钟 -->
+    <section class="instrument" id="inst-clock">
+      <div class="inst-label">· 挂 钟 ·</div>
+      <div class="clock-face">
+        <div class="clock-hand hr" id="handHr"></div>
+        <div class="clock-hand min" id="handMin"></div>
+        <div class="clock-hand sec" id="handSec"></div>
+        <div class="clock-pin"></div>
+        <span class="tick t12">Ⅻ</span><span class="tick t3">Ⅲ</span>
+        <span class="tick t6">Ⅵ</span><span class="tick t9">Ⅸ</span>
+      </div>
+      <div class="clock-digital" id="clockDigital">--:--:--</div>
+    </section>
+
+    <!-- 仪器 2：番茄钟 -->
+    <section class="instrument" id="inst-pomo">
+      <div class="inst-label">· 番 茄 钟 ·</div>
+      <div class="gauge">
+        <svg class="gauge-ring" viewBox="0 0 120 120">
+          <circle class="ring-bg" cx="60" cy="60" r="52" />
+          <circle class="ring-fg" id="pomoRing" cx="60" cy="60" r="52" />
+        </svg>
+        <div class="gauge-center">
+          <b id="pomoTime">25:00</b>
+          <span id="pomoPhase">专注</span>
+        </div>
+      </div>
+      <div class="lever-row">
+        <span class="lever-hint">工作</span>
+        <button class="lever" id="pomoLever" aria-label="拨杆开关">
+          <span class="lever-knob"></span>
+        </button>
+        <span class="lever-hint">拨动启停</span>
+      </div>
+      <div class="brass-badge" id="pomoCount">今日完成 0 番</div>
+    </section>
+
+    <!-- 仪器 3：倒计时旋钮 -->
+    <section class="instrument" id="inst-timer">
+      <div class="inst-label">· 倒 计 时 ·</div>
+      <div class="nixie-window">
+        <span class="nixie" id="tMin">10</span><span class="nixie-colon">:</span><span class="nixie" id="tSec">00</span>
+      </div>
+      <div class="knob-row">
+        <button class="knob-btn" data-d="-5">−5</button>
+        <button class="knob-btn" data-d="-1">−1</button>
+        <button class="knob-btn" data-d="1">＋1</button>
+        <button class="knob-btn" data-d="5">＋5</button>
+      </div>
+      <div class="round-btns">
+        <button class="round-btn run" id="tRun">启</button>
+        <button class="round-btn" id="tReset">复</button>
+      </div>
+    </section>
+
+    <!-- 仪器 4：纪念日 -->
+    <section class="instrument wide" id="inst-anniv">
+      <div class="inst-label">· 纪 念 日 ·</div>
+      <div class="anniv-row">
+        <input type="text" class="leather-input" id="aName" placeholder="名称，如：在一起" maxlength="10" />
+        <input type="date" class="leather-input" id="aDate" />
+        <button class="round-btn run" id="aAdd">挂上铜牌</button>
+      </div>
+      <div class="tag-wall" id="tagWall"></div>
+    </section>
+
+    <!-- 仪器 5：作息表 -->
+    <section class="instrument wide" id="inst-sched">
+      <div class="inst-label">· 作 息 表 ·</div>
+      <div class="anniv-row">
+        <input type="time" class="leather-input small" id="sTime" value="08:00" />
+        <input type="text" class="leather-input grow" id="sName" placeholder="这一刻要做的事，如：晨读" maxlength="14" />
+        <button class="round-btn run" id="sAdd">记入</button>
+      </div>
+      <ol class="sched-list" id="schedList"></ol>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
